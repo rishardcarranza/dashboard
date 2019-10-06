@@ -1,0 +1,13 @@
+<h4>Usuarios Conectados</h4>
+
+<ul class="list-group">
+    <li class="list-group-item"
+        *ngIf="(usuariosActivos | async)?.length === 0">
+        <span class="text-danger"><i class="fa fa-exclamation-triangle"></i> Ningún usuario conectado</span>
+    </li>
+    <li class="list-group-item"
+        *ngFor="let usuario of usuariosActivos | async">
+        <i class="fa fa-user"></i> {{usuario.nombre}}
+        <span class="badge badge-info">{{usuario.id}}</span>
+    </li>
+  </ul>

@@ -1,0 +1,13 @@
+<footer class="p-2 bg-dark text-white text-left fixed-bottom">
+
+  Estado:
+  <em *ngIf="this.wsService.socketStatus"
+      class="text-sm text-success">
+    <i class="fa fa-check-circle"></i> Online
+  </em>
+  <em *ngIf="!this.wsService.socketStatus"
+      class="text-sm text-danger">
+    <i class="fa fa-times-circle"></i> Offline
+  </em>
+
+</footer>
