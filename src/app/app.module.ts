@@ -9,6 +9,10 @@ import { environment } from 'src/environments/environment';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { ServerInfoComponent } from './components/server-info/server-info.component';
+
+import { QRCodeModule } from 'angularx-qrcode';
+
+
 const config: SocketIoConfig = {
   url: environment.wsURL, options: {}
 };
@@ -22,6 +26,7 @@ const config: SocketIoConfig = {
   ],
   imports: [
     BrowserModule,
+    QRCodeModule,
     SocketIoModule.forRoot(config)
   ],
   providers: [],

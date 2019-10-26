@@ -9,7 +9,7 @@ import { Usuario } from '../models/usuario';
 export class WebsocketService {
 
   public socketStatus = false;
- public usuario: Usuario = null;
+  public usuario: Usuario = null;
 
   constructor(
               private socket: Socket
