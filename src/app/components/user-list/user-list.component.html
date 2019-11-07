@@ -2,12 +2,15 @@
 <hr>
 <ul class="list-group">
     <li class="list-group-item"
-        *ngIf="(usuariosActivos | async)?.length === 0">
+        *ngIf="(this.webSocketService.usuariosActivos)?.length === 0 || !this.webSocketService.socketStatus">
         <span class="text-danger"><i class="fa fa-exclamation-triangle"></i> Ningún usuario conectado</span>
     </li>
+</ul>
+<ul class="list-group"
+    *ngIf="this.webSocketService.socketStatus">
     <li class="list-group-item"
-        *ngFor="let usuario of usuariosActivos | async">
+        *ngFor="let usuario of this.webSocketService.usuariosActivos">
         <i class="fa fa-user"></i> {{usuario.nombre}}
         <span class="badge badge-info">{{usuario.id}}</span>
     </li>
-  </ul>
+</ul>

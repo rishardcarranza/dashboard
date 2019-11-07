@@ -13,7 +13,6 @@ export class FooterComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.wsService.emit('configurar-usuario', {nombre: 'dashboard'}, () => {});
   }
 
 }

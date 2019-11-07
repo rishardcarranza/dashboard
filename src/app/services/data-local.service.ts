@@ -16,7 +16,7 @@ declare global {
 export class DataLocalService {
 
     private ipRegex = new RegExp(/([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/);
-    private localIp: string = '';
+    private localIp = '';
 
   constructor(private zone: NgZone) { }
 

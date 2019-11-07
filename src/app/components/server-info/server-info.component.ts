@@ -7,8 +7,8 @@ import { DataLocalService } from '../../services/data-local.service';
   styleUrls: ['./server-info.component.css']
 })
 export class ServerInfoComponent implements OnInit {
-    public qrCodeData: string = '';
-    public localIp: string = '';
+    public qrCodeData = '';
+    public localIp = '';
 
   constructor(private dataLocal: DataLocalService) {
    }
@@ -16,7 +16,7 @@ export class ServerInfoComponent implements OnInit {
   ngOnInit() {
     this.getLocalIP();
     this.localIp = localStorage.getItem('LOCAL_IP');
-    this.qrCodeData = this.localIp
+    this.qrCodeData = this.localIp;
   }
 
   async getLocalIP() {

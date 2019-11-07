@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from '../../services/dashboard.service';
 import { Observable } from 'rxjs';
+import { WebsocketService } from '../../services/websocket.service';
 
 
 @Component({
@@ -10,12 +11,15 @@ import { Observable } from 'rxjs';
 })
 export class UserListComponent implements OnInit {
 
-  usuariosActivos: Observable<any>;
+  // usuariosActivos: Observable<any>;
 
-  constructor(public dashboardService: DashboardService) { }
+  constructor(
+    public dashboardService: DashboardService,
+    public webSocketService: WebsocketService
+    ) { }
 
   ngOnInit() {
-    this.usuariosActivos = this.dashboardService.getUsuariosActivos();
+    // this.usuariosActivos = this.dashboardService.getUsuariosActivos();
   }
 
 }

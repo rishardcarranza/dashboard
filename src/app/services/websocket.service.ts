@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
 import { Usuario } from '../models/usuario';
+import { Observable } from 'rxjs';
 // import { Router } from '@angular/router';
 
 @Injectable({
@@ -10,6 +11,7 @@ export class WebsocketService {
 
   public socketStatus = false;
   public usuario: Usuario = null;
+  public usuariosActivos: any;
 
   constructor(
               private socket: Socket
@@ -22,24 +24,37 @@ export class WebsocketService {
   checkStatus() {
     this.socket.on('connect', () => {
       this.socketStatus = true;
+      console.log('on connect');
       // this.cargarStorage();
+      this.getUsuariosActivos();
+      this.emit('configurar-usuario', {nombre: 'dashboard'}, () => {});
     });
 
     this.socket.on('disconnect', () => {
       this.socketStatus = false;
+      this.getUsuariosActivos();
     });
   }
 
   // tslint:disable-next-line: ban-types
   emit(evento: string, payload?: any, callback?: Function) {
 
-    console.log('Emitiendo mensaje...');
+    console.log('Emitiendo: ', evento);
 
     this.socket.emit(evento, payload, callback);
   }
 
   listen(evento: string) {
+    console.log('Escuchando: ', evento);
     return this.socket.fromEvent(evento);
+  }
+
+  getUsuariosActivos() {
+    this.listen('usuarios-activos')
+    .subscribe(response => {
+      console.log(response);
+      this.usuariosActivos = response;
+    });
   }
 
   // loginWS(nombre: string) {
