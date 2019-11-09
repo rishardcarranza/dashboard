@@ -27,7 +27,13 @@ export class WebsocketService {
       console.log('on connect');
       // this.cargarStorage();
       this.getUsuariosActivos();
-      this.emit('configurar-usuario', {nombre: 'dashboard'}, () => {});
+      const data = {
+        first_name: '',
+        last_name: '',
+        username: 'dashboard',
+        email: ''
+      };
+      this.emit('configurar-usuario', data, () => {});
     });
 
     this.socket.on('disconnect', () => {

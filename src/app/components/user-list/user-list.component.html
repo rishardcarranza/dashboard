@@ -8,9 +8,14 @@
 </ul>
 <ul class="list-group"
     *ngIf="this.webSocketService.socketStatus">
-    <li class="list-group-item"
+    <li class="list-group-item bg-white"
         *ngFor="let usuario of this.webSocketService.usuariosActivos">
-        <i class="fa fa-user"></i> {{usuario.nombre}}
-        <span class="badge badge-info">{{usuario.id}}</span>
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1 align-content-start"><i class="fa fa-user"></i>&nbsp;{{usuario.nombre}}</h5>
+            <!-- <small class="text-secondary">@{{usuario.username}}</small> -->
+            <h6 class="text-info font-weight-bold">{{usuario.username}}</h6>
+        </div>
+        <!-- <small>{{usuario.email}} </small> -->
+        <!-- <span class="badge badge-info">{{usuario.id}}</span> -->
     </li>
 </ul>
