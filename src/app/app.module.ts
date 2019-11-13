@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -27,6 +28,7 @@ const config: SocketIoConfig = {
   imports: [
     BrowserModule,
     QRCodeModule,
+    HttpClientModule,
     SocketIoModule.forRoot(config)
   ],
   providers: [],

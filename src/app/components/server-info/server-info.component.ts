@@ -14,13 +14,20 @@ export class ServerInfoComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.getLocalIP();
-    this.localIp = localStorage.getItem('LOCAL_IP');
-    this.qrCodeData = this.localIp;
-  }
-
-  async getLocalIP() {
-    await this.dataLocal.getLocalIp();
+    // this.localIp = localStorage.getItem('LOCAL_IP');
+    // tslint:disable-next-line: max-line-length
+    // console.log('entonces?', typeof(this.localIp), this.localIp, (this.localIp !== 'null' && this.localIp !== null && this.localIp !== ''));
+    // if (this.localIp !== 'null' && this.localIp !== null && this.localIp !== '') {
+    //   this.qrCodeData = this.localIp;
+    // } else {
+    this.dataLocal.getServerInfo()
+      .then((server) => {
+        // console.log(server);
+        this.localIp = server[0].ipaddr;
+        this.qrCodeData = this.localIp;
+        localStorage.setItem('LOCAL_IP',  this.localIp);
+      });
+    // }
   }
 
 }
