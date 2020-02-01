@@ -7,7 +7,7 @@ export const environment = {
   wsURL: 'http://localhost:5000',
   apiURL: 'http://localhost:8000',
   userAdmin: 'dashboard',
-  token: 'f33b11535449ab24608ca12b42c7e3ea43e8fd94'
+  token: 'a6ead2962f36af0a4524a9da1ebfd0d268564715'
 };
 
 /*
