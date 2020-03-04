@@ -2,9 +2,21 @@
 <hr>
 <h6>Sigue estos pasos para compartir.</h6>
 <ol>
-  <li class="text-info"><span>Conectarse a la red wifi <i class="fa fa-wifi"></i> Media_Raspi.</span></li>
-  <li class="text-info"><span>Escanear el código QR <i class="fa fa-qrcode"></i> desde la app móvil <strong>uEasyShareApp</strong>.</span></li>
-  <li class="text-info"><span>Ahora comparte el contenido multimedia <i class="fa fa-play"></i> que desees. ¡Y a ¡disfrutar!</span></li>
+  <li class="text-info">
+    <span>
+      Conectarse a la red WiFi <i class="fa fa-wifi"></i>
+    </span>
+  </li>
+  <li class="text-info">
+    <span>
+      Escanear el código QR <i class="fa fa-qrcode"></i> desde la app móvil <strong>uEasyShareApp</strong>; o de forma manual con la IP <strong>{{localIp}}:5000</strong>
+    </span>
+  </li>
+  <li class="text-info">
+    <span>
+      Ahora comparte el contenido multimedia <i class="fa fa-play"></i> que desees. ¡Y a disfrutar!
+    </span>
+  </li>
 </ol>
 <br>
 <p *ngIf="qrCodeData !== ''">
